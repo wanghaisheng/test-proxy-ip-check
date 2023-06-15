@@ -5,6 +5,8 @@ on:
 jobs:
   build-ubuntu:
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright/python:v1.35.0-jammy      
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -14,8 +16,8 @@ jobs:
           repository: 'wanghaisheng/tiktoka-studio-uploader'     
           path: tiktoka-studio-uploader 
           
-      - name: Run Playwright tests
-        uses: docker://mcr.microsoft.com/playwright:v1.35.0-jammy          
+#       - name: Run Playwright tests
+#         uses: docker://mcr.microsoft.com/playwright:v1.35.0-jammy          
       - name: Set up Python 3.10
         uses: actions/setup-python@v4
         with:
