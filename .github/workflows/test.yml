@@ -6,10 +6,14 @@ jobs:
   build-ubuntu:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Checkout tools repo
+        uses: actions/checkout@v3
         with:
-          fetch-depth: 0
-          repository: 'wanghaisheng/tiktoka-studio-uploader'          
+          repository: 'wanghaisheng/tiktoka-studio-uploader'     
+          path: tiktoka-studio-uploader 
       - name: Set up Python 3.10
         uses: actions/setup-python@v4
         with:
@@ -39,5 +43,5 @@ jobs:
           automatic_release_tag: '${{ github.run_id }}'
           prerelease: false
           title: '${{ github.run_id }}'
-#           files: |
-#             output/*
+          files: |
+            tiktoka-studio-uploader/output/*
