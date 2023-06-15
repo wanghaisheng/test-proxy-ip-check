@@ -1,15 +1,7 @@
-name: download audio from url，support video url and channel url
+name: bot check screenshots
 on:
   workflow_dispatch:
-    inputs:
-      URL:
-        description: YouTube Channel URL
-        type: enviroment
-        required: true
-      downloadOnlyAudio:
-        description: if download audio only
-        type: boolean
-        required: true
+
 jobs:
   build-ubuntu:
     runs-on: ubuntu-latest
