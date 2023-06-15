@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update     
-          cd tiktoka-studio-uploader 
+          ls -al
           python -m pip install --upgrade pip
           pip install -r  requirements.txt 
       - name: run demo
