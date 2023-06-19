@@ -18,6 +18,12 @@ jobs:
           
 #       - name: Run Playwright tests
 #         uses: docker://mcr.microsoft.com/playwright:v1.35.0-jammy          
+      - name: Setup xvfb (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get install -y xvfb libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 libxcb-xinerama0 libxcb-xinput0 libxcb-xfixes0
+          # start xvfb in the background
+          sudo /usr/bin/Xvfb $DISPLAY -screen 0 1280x1024x24 &
       - name: Set up Python 3.10
         uses: actions/setup-python@v4
         with:
