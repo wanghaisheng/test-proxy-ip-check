@@ -24,16 +24,16 @@ jobs:
           python-version: '3.10'
       - name: Install dependencies
 # https://stackoverflow.com/questions/63592708/error-no-display-environment-variable-specified
-      
+      #          apt-get install xvfb
+ #         touch ~/.Xauthority
+  #        xauth generate :0 . trusted
+   #       xauth add ${HOST}:0 . $(xxd -l 16 -p /dev/urandom)
+    #      xauth list
+     #     export DISPLAY=:0        
         run: |
           apt-get update     
-          apt-get install xvfb
-          touch ~/.Xauthority
-          xauth generate :0 . trusted
-          xauth add ${HOST}:0 . $(xxd -l 16 -p /dev/urandom)
-          xauth list
-          export DISPLAY=:0          
-          
+          export DISPLAY=localhost:0.0
+          export MOZ_HEADLESS=1    
           ls -al
           cd tiktoka-studio-uploader 
           python -m pip install --upgrade pip
